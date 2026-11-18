@@ -62,6 +62,9 @@ class ActorFixtures extends Fixture
             $actor->setGender($row["gender"]);
 
             $manager->persist($actor);
+
+            //Enregistrer une référence à cet acteur
+            $this->addReference($row["firstname"]."-".$row["lastname"], $actor);
         }
 
         $manager->flush();

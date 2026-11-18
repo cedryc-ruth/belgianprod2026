@@ -25,6 +25,9 @@ class CategoryFixtures extends Fixture
             $category->setName($row["name"]);
 
             $manager->persist($category);
+
+            //Enregistrer une référence à cette catégorie
+            $this->addReference($row["name"], $category);
         }
 
         $manager->flush();
